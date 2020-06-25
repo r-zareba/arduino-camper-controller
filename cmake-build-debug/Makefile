@@ -48,10 +48,10 @@ RM = /home/rafal/CLion/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rafal/Desktop/Arduino_projects/home_controller
+CMAKE_SOURCE_DIR = /home/rafal/Desktop/Arduino_projects/arduino-camper-controller
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug
+CMAKE_BINARY_DIR = /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named home_controller
+# Target rules for targets named arduino-camper-controller
 
 # Build rule for target.
-home_controller: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 home_controller
-.PHONY : home_controller
+arduino-camper-controller: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 arduino-camper-controller
+.PHONY : arduino-camper-controller
 
 # fast build rule for target.
-home_controller/fast:
-	$(MAKE) -f CMakeFiles/home_controller.dir/build.make CMakeFiles/home_controller.dir/build
-.PHONY : home_controller/fast
+arduino-camper-controller/fast:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/build
+.PHONY : arduino-camper-controller/fast
 
 #=============================================================================
 # Target rules for targets named PLATFORMIO_CLEAN
@@ -259,7 +259,7 @@ src/Button/Button.o: src/Button/Button.cpp.o
 
 # target to build an object file
 src/Button/Button.cpp.o:
-	$(MAKE) -f CMakeFiles/home_controller.dir/build.make CMakeFiles/home_controller.dir/src/Button/Button.cpp.o
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Button/Button.cpp.o
 .PHONY : src/Button/Button.cpp.o
 
 src/Button/Button.i: src/Button/Button.cpp.i
@@ -268,7 +268,7 @@ src/Button/Button.i: src/Button/Button.cpp.i
 
 # target to preprocess a source file
 src/Button/Button.cpp.i:
-	$(MAKE) -f CMakeFiles/home_controller.dir/build.make CMakeFiles/home_controller.dir/src/Button/Button.cpp.i
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Button/Button.cpp.i
 .PHONY : src/Button/Button.cpp.i
 
 src/Button/Button.s: src/Button/Button.cpp.s
@@ -277,7 +277,7 @@ src/Button/Button.s: src/Button/Button.cpp.s
 
 # target to generate assembly for a file
 src/Button/Button.cpp.s:
-	$(MAKE) -f CMakeFiles/home_controller.dir/build.make CMakeFiles/home_controller.dir/src/Button/Button.cpp.s
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Button/Button.cpp.s
 .PHONY : src/Button/Button.cpp.s
 
 src/Encoder/Encoder.o: src/Encoder/Encoder.cpp.o
@@ -286,7 +286,7 @@ src/Encoder/Encoder.o: src/Encoder/Encoder.cpp.o
 
 # target to build an object file
 src/Encoder/Encoder.cpp.o:
-	$(MAKE) -f CMakeFiles/home_controller.dir/build.make CMakeFiles/home_controller.dir/src/Encoder/Encoder.cpp.o
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Encoder/Encoder.cpp.o
 .PHONY : src/Encoder/Encoder.cpp.o
 
 src/Encoder/Encoder.i: src/Encoder/Encoder.cpp.i
@@ -295,7 +295,7 @@ src/Encoder/Encoder.i: src/Encoder/Encoder.cpp.i
 
 # target to preprocess a source file
 src/Encoder/Encoder.cpp.i:
-	$(MAKE) -f CMakeFiles/home_controller.dir/build.make CMakeFiles/home_controller.dir/src/Encoder/Encoder.cpp.i
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Encoder/Encoder.cpp.i
 .PHONY : src/Encoder/Encoder.cpp.i
 
 src/Encoder/Encoder.s: src/Encoder/Encoder.cpp.s
@@ -304,8 +304,62 @@ src/Encoder/Encoder.s: src/Encoder/Encoder.cpp.s
 
 # target to generate assembly for a file
 src/Encoder/Encoder.cpp.s:
-	$(MAKE) -f CMakeFiles/home_controller.dir/build.make CMakeFiles/home_controller.dir/src/Encoder/Encoder.cpp.s
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Encoder/Encoder.cpp.s
 .PHONY : src/Encoder/Encoder.cpp.s
+
+src/Keypad/Keypad.o: src/Keypad/Keypad.cpp.o
+
+.PHONY : src/Keypad/Keypad.o
+
+# target to build an object file
+src/Keypad/Keypad.cpp.o:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Keypad/Keypad.cpp.o
+.PHONY : src/Keypad/Keypad.cpp.o
+
+src/Keypad/Keypad.i: src/Keypad/Keypad.cpp.i
+
+.PHONY : src/Keypad/Keypad.i
+
+# target to preprocess a source file
+src/Keypad/Keypad.cpp.i:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Keypad/Keypad.cpp.i
+.PHONY : src/Keypad/Keypad.cpp.i
+
+src/Keypad/Keypad.s: src/Keypad/Keypad.cpp.s
+
+.PHONY : src/Keypad/Keypad.s
+
+# target to generate assembly for a file
+src/Keypad/Keypad.cpp.s:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Keypad/Keypad.cpp.s
+.PHONY : src/Keypad/Keypad.cpp.s
+
+src/Keypad/utility/Key.o: src/Keypad/utility/Key.cpp.o
+
+.PHONY : src/Keypad/utility/Key.o
+
+# target to build an object file
+src/Keypad/utility/Key.cpp.o:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Keypad/utility/Key.cpp.o
+.PHONY : src/Keypad/utility/Key.cpp.o
+
+src/Keypad/utility/Key.i: src/Keypad/utility/Key.cpp.i
+
+.PHONY : src/Keypad/utility/Key.i
+
+# target to preprocess a source file
+src/Keypad/utility/Key.cpp.i:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Keypad/utility/Key.cpp.i
+.PHONY : src/Keypad/utility/Key.cpp.i
+
+src/Keypad/utility/Key.s: src/Keypad/utility/Key.cpp.s
+
+.PHONY : src/Keypad/utility/Key.s
+
+# target to generate assembly for a file
+src/Keypad/utility/Key.cpp.s:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Keypad/utility/Key.cpp.s
+.PHONY : src/Keypad/utility/Key.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -313,7 +367,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/home_controller.dir/build.make CMakeFiles/home_controller.dir/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -322,7 +376,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/home_controller.dir/build.make CMakeFiles/home_controller.dir/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -331,7 +385,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/home_controller.dir/build.make CMakeFiles/home_controller.dir/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -341,7 +395,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... home_controller"
+	@echo "... arduino-camper-controller"
 	@echo "... PLATFORMIO_CLEAN"
 	@echo "... PLATFORMIO_PROGRAM"
 	@echo "... PLATFORMIO_UPLOAD"
@@ -359,6 +413,12 @@ help:
 	@echo "... src/Encoder/Encoder.o"
 	@echo "... src/Encoder/Encoder.i"
 	@echo "... src/Encoder/Encoder.s"
+	@echo "... src/Keypad/Keypad.o"
+	@echo "... src/Keypad/Keypad.i"
+	@echo "... src/Keypad/Keypad.s"
+	@echo "... src/Keypad/utility/Key.o"
+	@echo "... src/Keypad/utility/Key.i"
+	@echo "... src/Keypad/utility/Key.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

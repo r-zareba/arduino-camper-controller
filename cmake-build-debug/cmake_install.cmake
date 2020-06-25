@@ -1,4 +1,4 @@
-# Install script for directory: /home/rafal/Desktop/Arduino_projects/home_controller
+# Install script for directory: /home/rafal/Desktop/Arduino_projects/arduino-camper-controller
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

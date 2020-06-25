@@ -43,10 +43,10 @@ RM = /home/rafal/CLion/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rafal/Desktop/Arduino_projects/home_controller
+CMAKE_SOURCE_DIR = /home/rafal/Desktop/Arduino_projects/arduino-camper-controller
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug
+CMAKE_BINARY_DIR = /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug
 
 # Utility rule file for PLATFORMIO_UPDATE_ALL.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/rafal/Desktop/Arduino_projects/home_controller/cmake-bu
 include CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/progress.make
 
 CMakeFiles/PLATFORMIO_UPDATE_ALL:
-	cd /home/rafal/Desktop/Arduino_projects/home_controller && /usr/local/bin/platformio -f -c clion update
+	cd /home/rafal/Desktop/Arduino_projects/arduino-camper-controller && /usr/local/bin/platformio -f -c clion update
 
 PLATFORMIO_UPDATE_ALL: CMakeFiles/PLATFORMIO_UPDATE_ALL
 PLATFORMIO_UPDATE_ALL: CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/clean:
 .PHONY : CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/clean
 
 CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/depend:
-	cd /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rafal/Desktop/Arduino_projects/home_controller /home/rafal/Desktop/Arduino_projects/home_controller /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rafal/Desktop/Arduino_projects/arduino-camper-controller /home/rafal/Desktop/Arduino_projects/arduino-camper-controller /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/depend
 

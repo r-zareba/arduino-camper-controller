@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2)
-project(home_controller)
+project(arduino-camper-controller)
 
 include(CMakeListsPrivate.txt)
 
@@ -65,4 +65,6 @@ add_custom_target(
 
 add_executable(${PROJECT_NAME} ${SRC_LIST}
         src/Button/Button.cpp src/Button/Button.h
-        src/Encoder/Encoder.cpp src/Encoder/Encoder.h)
+        src/Encoder/Encoder.cpp src/Encoder/Encoder.h
+        src/Keypad/Keypad.cpp src/Keypad/Keypad.h
+        src/Keypad/utility/Key.cpp src/Keypad/utility/Key.h)

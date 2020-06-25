@@ -44,16 +44,16 @@ RM = /home/rafal/CLion/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rafal/Desktop/Arduino_projects/home_controller
+CMAKE_SOURCE_DIR = /home/rafal/Desktop/Arduino_projects/arduino-camper-controller
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug
+CMAKE_BINARY_DIR = /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/home_controller.dir/all
+all: CMakeFiles/arduino-camper-controller.dir/all
 all: CMakeFiles/PLATFORMIO_CLEAN.dir/all
 all: CMakeFiles/PLATFORMIO_PROGRAM.dir/all
 all: CMakeFiles/PLATFORMIO_UPLOAD.dir/all
@@ -73,7 +73,7 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/home_controller.dir/clean
+clean: CMakeFiles/arduino-camper-controller.dir/clean
 clean: CMakeFiles/PLATFORMIO_CLEAN.dir/clean
 clean: CMakeFiles/PLATFORMIO_PROGRAM.dir/clean
 clean: CMakeFiles/PLATFORMIO_UPLOAD.dir/clean
@@ -88,31 +88,31 @@ clean: CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/home_controller.dir
+# Target rules for target CMakeFiles/arduino-camper-controller.dir
 
 # All Build rule for target.
-CMakeFiles/home_controller.dir/all:
-	$(MAKE) -f CMakeFiles/home_controller.dir/build.make CMakeFiles/home_controller.dir/depend
-	$(MAKE) -f CMakeFiles/home_controller.dir/build.make CMakeFiles/home_controller.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target home_controller"
-.PHONY : CMakeFiles/home_controller.dir/all
+CMakeFiles/arduino-camper-controller.dir/all:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/depend
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target arduino-camper-controller"
+.PHONY : CMakeFiles/arduino-camper-controller.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/home_controller.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/home_controller.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/home_controller.dir/rule
+CMakeFiles/arduino-camper-controller.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/arduino-camper-controller.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/arduino-camper-controller.dir/rule
 
 # Convenience name for target.
-home_controller: CMakeFiles/home_controller.dir/rule
+arduino-camper-controller: CMakeFiles/arduino-camper-controller.dir/rule
 
-.PHONY : home_controller
+.PHONY : arduino-camper-controller
 
 # clean rule for target.
-CMakeFiles/home_controller.dir/clean:
-	$(MAKE) -f CMakeFiles/home_controller.dir/build.make CMakeFiles/home_controller.dir/clean
-.PHONY : CMakeFiles/home_controller.dir/clean
+CMakeFiles/arduino-camper-controller.dir/clean:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/clean
+.PHONY : CMakeFiles/arduino-camper-controller.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/PLATFORMIO_CLEAN.dir
@@ -121,14 +121,14 @@ CMakeFiles/home_controller.dir/clean:
 CMakeFiles/PLATFORMIO_CLEAN.dir/all:
 	$(MAKE) -f CMakeFiles/PLATFORMIO_CLEAN.dir/build.make CMakeFiles/PLATFORMIO_CLEAN.dir/depend
 	$(MAKE) -f CMakeFiles/PLATFORMIO_CLEAN.dir/build.make CMakeFiles/PLATFORMIO_CLEAN.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_CLEAN"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_CLEAN"
 .PHONY : CMakeFiles/PLATFORMIO_CLEAN.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PLATFORMIO_CLEAN.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PLATFORMIO_CLEAN.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/PLATFORMIO_CLEAN.dir/rule
 
 # Convenience name for target.
@@ -148,14 +148,14 @@ CMakeFiles/PLATFORMIO_CLEAN.dir/clean:
 CMakeFiles/PLATFORMIO_PROGRAM.dir/all:
 	$(MAKE) -f CMakeFiles/PLATFORMIO_PROGRAM.dir/build.make CMakeFiles/PLATFORMIO_PROGRAM.dir/depend
 	$(MAKE) -f CMakeFiles/PLATFORMIO_PROGRAM.dir/build.make CMakeFiles/PLATFORMIO_PROGRAM.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_PROGRAM"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_PROGRAM"
 .PHONY : CMakeFiles/PLATFORMIO_PROGRAM.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PLATFORMIO_PROGRAM.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PLATFORMIO_PROGRAM.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/PLATFORMIO_PROGRAM.dir/rule
 
 # Convenience name for target.
@@ -175,14 +175,14 @@ CMakeFiles/PLATFORMIO_PROGRAM.dir/clean:
 CMakeFiles/PLATFORMIO_UPLOAD.dir/all:
 	$(MAKE) -f CMakeFiles/PLATFORMIO_UPLOAD.dir/build.make CMakeFiles/PLATFORMIO_UPLOAD.dir/depend
 	$(MAKE) -f CMakeFiles/PLATFORMIO_UPLOAD.dir/build.make CMakeFiles/PLATFORMIO_UPLOAD.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_UPLOAD"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_UPLOAD"
 .PHONY : CMakeFiles/PLATFORMIO_UPLOAD.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PLATFORMIO_UPLOAD.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PLATFORMIO_UPLOAD.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/PLATFORMIO_UPLOAD.dir/rule
 
 # Convenience name for target.
@@ -202,14 +202,14 @@ CMakeFiles/PLATFORMIO_UPLOAD.dir/clean:
 CMakeFiles/PLATFORMIO_BUILD_VERBOSE.dir/all:
 	$(MAKE) -f CMakeFiles/PLATFORMIO_BUILD_VERBOSE.dir/build.make CMakeFiles/PLATFORMIO_BUILD_VERBOSE.dir/depend
 	$(MAKE) -f CMakeFiles/PLATFORMIO_BUILD_VERBOSE.dir/build.make CMakeFiles/PLATFORMIO_BUILD_VERBOSE.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_BUILD_VERBOSE"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_BUILD_VERBOSE"
 .PHONY : CMakeFiles/PLATFORMIO_BUILD_VERBOSE.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PLATFORMIO_BUILD_VERBOSE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PLATFORMIO_BUILD_VERBOSE.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/PLATFORMIO_BUILD_VERBOSE.dir/rule
 
 # Convenience name for target.
@@ -229,14 +229,14 @@ CMakeFiles/PLATFORMIO_BUILD_VERBOSE.dir/clean:
 CMakeFiles/PLATFORMIO_MONITOR.dir/all:
 	$(MAKE) -f CMakeFiles/PLATFORMIO_MONITOR.dir/build.make CMakeFiles/PLATFORMIO_MONITOR.dir/depend
 	$(MAKE) -f CMakeFiles/PLATFORMIO_MONITOR.dir/build.make CMakeFiles/PLATFORMIO_MONITOR.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_MONITOR"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_MONITOR"
 .PHONY : CMakeFiles/PLATFORMIO_MONITOR.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PLATFORMIO_MONITOR.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PLATFORMIO_MONITOR.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/PLATFORMIO_MONITOR.dir/rule
 
 # Convenience name for target.
@@ -256,14 +256,14 @@ CMakeFiles/PLATFORMIO_MONITOR.dir/clean:
 CMakeFiles/PLATFORMIO_BUILD.dir/all:
 	$(MAKE) -f CMakeFiles/PLATFORMIO_BUILD.dir/build.make CMakeFiles/PLATFORMIO_BUILD.dir/depend
 	$(MAKE) -f CMakeFiles/PLATFORMIO_BUILD.dir/build.make CMakeFiles/PLATFORMIO_BUILD.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_BUILD"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_BUILD"
 .PHONY : CMakeFiles/PLATFORMIO_BUILD.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PLATFORMIO_BUILD.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PLATFORMIO_BUILD.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/PLATFORMIO_BUILD.dir/rule
 
 # Convenience name for target.
@@ -283,14 +283,14 @@ CMakeFiles/PLATFORMIO_BUILD.dir/clean:
 CMakeFiles/PLATFORMIO_TEST.dir/all:
 	$(MAKE) -f CMakeFiles/PLATFORMIO_TEST.dir/build.make CMakeFiles/PLATFORMIO_TEST.dir/depend
 	$(MAKE) -f CMakeFiles/PLATFORMIO_TEST.dir/build.make CMakeFiles/PLATFORMIO_TEST.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_TEST"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_TEST"
 .PHONY : CMakeFiles/PLATFORMIO_TEST.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PLATFORMIO_TEST.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PLATFORMIO_TEST.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/PLATFORMIO_TEST.dir/rule
 
 # Convenience name for target.
@@ -310,14 +310,14 @@ CMakeFiles/PLATFORMIO_TEST.dir/clean:
 CMakeFiles/PLATFORMIO_UPLOADFS.dir/all:
 	$(MAKE) -f CMakeFiles/PLATFORMIO_UPLOADFS.dir/build.make CMakeFiles/PLATFORMIO_UPLOADFS.dir/depend
 	$(MAKE) -f CMakeFiles/PLATFORMIO_UPLOADFS.dir/build.make CMakeFiles/PLATFORMIO_UPLOADFS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_UPLOADFS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_UPLOADFS"
 .PHONY : CMakeFiles/PLATFORMIO_UPLOADFS.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PLATFORMIO_UPLOADFS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PLATFORMIO_UPLOADFS.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/PLATFORMIO_UPLOADFS.dir/rule
 
 # Convenience name for target.
@@ -337,14 +337,14 @@ CMakeFiles/PLATFORMIO_UPLOADFS.dir/clean:
 CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/all:
 	$(MAKE) -f CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/build.make CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/depend
 	$(MAKE) -f CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/build.make CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_REBUILD_PROJECT_INDEX"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_REBUILD_PROJECT_INDEX"
 .PHONY : CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/rule
 
 # Convenience name for target.
@@ -364,14 +364,14 @@ CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/clean:
 CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/all:
 	$(MAKE) -f CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build.make CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/depend
 	$(MAKE) -f CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build.make CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_UPDATE_ALL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num= "Built target PLATFORMIO_UPDATE_ALL"
 .PHONY : CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/home_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/rule
 
 # Convenience name for target.
