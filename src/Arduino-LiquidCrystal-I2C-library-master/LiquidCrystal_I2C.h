@@ -1,7 +1,7 @@
-#ifndef ARDUINO_CAMPER_CONTROLLER_LIQUIDCRYSTAL_I2C_H
-#define ARDUINO_CAMPER_CONTROLLER_LIQUIDCRYSTAL_I2C_H
+#ifndef FDB_LIQUID_CRYSTAL_I2C_H
+#define FDB_LIQUID_CRYSTAL_I2C_H
 
-
+#include <inttypes.h>
 #include <Print.h>
 
 // commands
@@ -51,7 +51,7 @@
 #define Rs B00000001  // Register select bit
 
 /**
- * This is the driver for the Liquid Crystal LiquidCrystal_I2C displays that use the I2C bus.
+ * This is the driver for the Liquid Crystal LCD displays that use the I2C bus.
  *
  * After creating an instance of this class, first call begin() before anything else.
  * The backlight is on by default, since that is the most likely operating mode in
@@ -62,38 +62,38 @@ public:
 	/**
 	 * Constructor
 	 *
-	 * @param lcd_addr	I2C slave address of the LiquidCrystal_I2C display. Most likely printed on the
-	 *					LiquidCrystal_I2C circuit board, or look in the supplied LiquidCrystal_I2C documentation.
-	 * @param lcd_cols	Number of columns your LiquidCrystal_I2C display has.
-	 * @param lcd_rows	Number of rows your LiquidCrystal_I2C display has.
+	 * @param lcd_addr	I2C slave address of the LCD display. Most likely printed on the
+	 *					LCD circuit board, or look in the supplied LCD documentation.
+	 * @param lcd_cols	Number of columns your LCD display has.
+	 * @param lcd_rows	Number of rows your LCD display has.
 	 * @param charsize	The size in dots that the display has, use LCD_5x10DOTS or LCD_5x8DOTS.
 	 */
 	LiquidCrystal_I2C(uint8_t lcd_addr, uint8_t lcd_cols, uint8_t lcd_rows, uint8_t charsize = LCD_5x8DOTS);
 
 	/**
-	 * Set the LiquidCrystal_I2C display in the correct begin state, must be called before anything else is done.
+	 * Set the LCD display in the correct begin state, must be called before anything else is done.
 	 */
 	void begin();
 
 	 /**
 	  * Remove all the characters currently shown. Next print/write operation will start
-	  * from the first position on LiquidCrystal_I2C display.
+	  * from the first position on LCD display.
 	  */
 	void clear();
 
 	/**
-	 * Next print/write operation will will start from the first position on the LiquidCrystal_I2C display.
+	 * Next print/write operation will will start from the first position on the LCD display.
 	 */
 	void home();
 
 	 /**
-	  * Do not show any characters on the LiquidCrystal_I2C display. Backlight state will remain unchanged.
+	  * Do not show any characters on the LCD display. Backlight state will remain unchanged.
 	  * Also all characters written on the display will return, when the display in enabled again.
 	  */
 	void noDisplay();
 
 	/**
-	 * Show the characters on the LiquidCrystal_I2C display, this is the normal behaviour. This method should
+	 * Show the characters on the LCD display, this is the normal behaviour. This method should
 	 * only be used after noDisplay() has been used.
 	 */
 	void display();
@@ -162,6 +162,4 @@ private:
 	uint8_t _backlightval;
 };
 
-
-
-#endif //ARDUINO_CAMPER_CONTROLLER_LIQUIDCRYSTAL_I2C_H
+#endif // FDB_LIQUID_CRYSTAL_I2C_H

@@ -253,6 +253,33 @@ PLATFORMIO_UPDATE_ALL/fast:
 	$(MAKE) -f CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build.make CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build
 .PHONY : PLATFORMIO_UPDATE_ALL/fast
 
+src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.o: src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp.o
+
+.PHONY : src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.o
+
+# target to build an object file
+src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp.o:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp.o
+.PHONY : src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp.o
+
+src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.i: src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp.i
+
+.PHONY : src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.i
+
+# target to preprocess a source file
+src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp.i:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp.i
+.PHONY : src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp.i
+
+src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.s: src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp.s
+
+.PHONY : src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.s
+
+# target to generate assembly for a file
+src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp.s:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp.s
+.PHONY : src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp.s
+
 src/Button/Button.o: src/Button/Button.cpp.o
 
 .PHONY : src/Button/Button.o
@@ -279,6 +306,33 @@ src/Button/Button.s: src/Button/Button.cpp.s
 src/Button/Button.cpp.s:
 	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Button/Button.cpp.s
 .PHONY : src/Button/Button.cpp.s
+
+src/DallasTemperature/DallasTemperature.o: src/DallasTemperature/DallasTemperature.cpp.o
+
+.PHONY : src/DallasTemperature/DallasTemperature.o
+
+# target to build an object file
+src/DallasTemperature/DallasTemperature.cpp.o:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/DallasTemperature/DallasTemperature.cpp.o
+.PHONY : src/DallasTemperature/DallasTemperature.cpp.o
+
+src/DallasTemperature/DallasTemperature.i: src/DallasTemperature/DallasTemperature.cpp.i
+
+.PHONY : src/DallasTemperature/DallasTemperature.i
+
+# target to preprocess a source file
+src/DallasTemperature/DallasTemperature.cpp.i:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/DallasTemperature/DallasTemperature.cpp.i
+.PHONY : src/DallasTemperature/DallasTemperature.cpp.i
+
+src/DallasTemperature/DallasTemperature.s: src/DallasTemperature/DallasTemperature.cpp.s
+
+.PHONY : src/DallasTemperature/DallasTemperature.s
+
+# target to generate assembly for a file
+src/DallasTemperature/DallasTemperature.cpp.s:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/DallasTemperature/DallasTemperature.cpp.s
+.PHONY : src/DallasTemperature/DallasTemperature.cpp.s
 
 src/Encoder/Encoder.o: src/Encoder/Encoder.cpp.o
 
@@ -361,32 +415,32 @@ src/Keypad/utility/Key.cpp.s:
 	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Keypad/utility/Key.cpp.s
 .PHONY : src/Keypad/utility/Key.cpp.s
 
-src/LCD/LiquidCrystal_I2C.o: src/LCD/LiquidCrystal_I2C.cpp.o
+src/OneWire/OneWire.o: src/OneWire/OneWire.cpp.o
 
-.PHONY : src/LCD/LiquidCrystal_I2C.o
+.PHONY : src/OneWire/OneWire.o
 
 # target to build an object file
-src/LCD/LiquidCrystal_I2C.cpp.o:
-	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.o
-.PHONY : src/LCD/LiquidCrystal_I2C.cpp.o
+src/OneWire/OneWire.cpp.o:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/OneWire/OneWire.cpp.o
+.PHONY : src/OneWire/OneWire.cpp.o
 
-src/LCD/LiquidCrystal_I2C.i: src/LCD/LiquidCrystal_I2C.cpp.i
+src/OneWire/OneWire.i: src/OneWire/OneWire.cpp.i
 
-.PHONY : src/LCD/LiquidCrystal_I2C.i
+.PHONY : src/OneWire/OneWire.i
 
 # target to preprocess a source file
-src/LCD/LiquidCrystal_I2C.cpp.i:
-	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.i
-.PHONY : src/LCD/LiquidCrystal_I2C.cpp.i
+src/OneWire/OneWire.cpp.i:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/OneWire/OneWire.cpp.i
+.PHONY : src/OneWire/OneWire.cpp.i
 
-src/LCD/LiquidCrystal_I2C.s: src/LCD/LiquidCrystal_I2C.cpp.s
+src/OneWire/OneWire.s: src/OneWire/OneWire.cpp.s
 
-.PHONY : src/LCD/LiquidCrystal_I2C.s
+.PHONY : src/OneWire/OneWire.s
 
 # target to generate assembly for a file
-src/LCD/LiquidCrystal_I2C.cpp.s:
-	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.s
-.PHONY : src/LCD/LiquidCrystal_I2C.cpp.s
+src/OneWire/OneWire.cpp.s:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/OneWire/OneWire.cpp.s
+.PHONY : src/OneWire/OneWire.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -434,9 +488,15 @@ help:
 	@echo "... PLATFORMIO_UPLOADFS"
 	@echo "... PLATFORMIO_REBUILD_PROJECT_INDEX"
 	@echo "... PLATFORMIO_UPDATE_ALL"
+	@echo "... src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.o"
+	@echo "... src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.i"
+	@echo "... src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.s"
 	@echo "... src/Button/Button.o"
 	@echo "... src/Button/Button.i"
 	@echo "... src/Button/Button.s"
+	@echo "... src/DallasTemperature/DallasTemperature.o"
+	@echo "... src/DallasTemperature/DallasTemperature.i"
+	@echo "... src/DallasTemperature/DallasTemperature.s"
 	@echo "... src/Encoder/Encoder.o"
 	@echo "... src/Encoder/Encoder.i"
 	@echo "... src/Encoder/Encoder.s"
@@ -446,9 +506,9 @@ help:
 	@echo "... src/Keypad/utility/Key.o"
 	@echo "... src/Keypad/utility/Key.i"
 	@echo "... src/Keypad/utility/Key.s"
-	@echo "... src/LCD/LiquidCrystal_I2C.o"
-	@echo "... src/LCD/LiquidCrystal_I2C.i"
-	@echo "... src/LCD/LiquidCrystal_I2C.s"
+	@echo "... src/OneWire/OneWire.o"
+	@echo "... src/OneWire/OneWire.i"
+	@echo "... src/OneWire/OneWire.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

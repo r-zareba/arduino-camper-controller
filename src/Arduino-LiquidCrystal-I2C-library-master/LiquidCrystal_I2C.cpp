@@ -1,5 +1,5 @@
 #include "LiquidCrystal_I2C.h"
-
+#include <inttypes.h>
 #include <Arduino.h>
 #include <Wire.h>
 
@@ -18,7 +18,7 @@
 //    I/D = 1; Increment by 1
 //    S = 0; No shift
 //
-// Note, however, that resetting the Arduino doesn't reset the LiquidCrystal_I2C, so we
+// Note, however, that resetting the Arduino doesn't reset the LCD, so we
 // can't assume that its in that state when a sketch starts (and the
 // LiquidCrystal constructor is called).
 
@@ -53,7 +53,7 @@ void LiquidCrystal_I2C::begin() {
 	expanderWrite(_backlightval);	// reset expanderand turn backlight off (Bit 8 =1)
 	delay(1000);
 
-	//put the LiquidCrystal_I2C into 4 bit mode
+	//put the LCD into 4 bit mode
 	// this is according to the hitachi HD44780 datasheet
 	// figure 24, pg 46
 
@@ -255,4 +255,3 @@ void LiquidCrystal_I2C::printstr(const char c[]){
 	//it's here so the user sketch doesn't have to be changed
 	print(c);
 }
-

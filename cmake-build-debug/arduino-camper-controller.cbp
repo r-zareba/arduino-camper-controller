@@ -210,10 +210,94 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.h">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Arduino-LiquidCrystal-I2C-library-master/README.md">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Arduino-LiquidCrystal-I2C-library-master/examples/BlinkingCursor/BlinkingCursor.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Arduino-LiquidCrystal-I2C-library-master/examples/CustomChars/CustomChars.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Arduino-LiquidCrystal-I2C-library-master/examples/HelloWorld/HelloWorld.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Arduino-LiquidCrystal-I2C-library-master/examples/SerialDisplay/SerialDisplay.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Arduino-LiquidCrystal-I2C-library-master/keywords.txt">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
 		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Button/Button.cpp">
 			<Option target="arduino-camper-controller"/>
 		</Unit>
 		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Button/Button.h">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/DallasTemperature.cpp">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/DallasTemperature.h">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/README.md">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/Alarm/Alarm.pde">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/AlarmHandler/AlarmHandler.pde">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/Multibus_simple/Multibus_simple.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/Multiple/Multiple.pde">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/Simple/Simple.pde">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/Single/Single.pde">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/Tester/Tester.pde">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/TwoPin_DS18B20/TwoPin_DS18B20.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/UserDataDemo/UserDataDemo.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/UserDataWriteBatch/UserDataWriteBatch.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/WaitForConversion/WaitForConversion.pde">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/WaitForConversion2/WaitForConversion2.pde">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/oneWireSearch/oneWireSearch.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/examples/setUserData/SetUserData.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/keywords.txt">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/library.json">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/library.properties">
 			<Option target="arduino-camper-controller"/>
 		</Unit>
 		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Encoder/Encoder.cpp">
@@ -228,16 +312,67 @@
 		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/Keypad.h">
 			<Option target="arduino-camper-controller"/>
 		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/examples/CustomKeypad/CustomKeypad.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/examples/DynamicKeypad/DynamicKeypad.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/examples/EventKeypad/EventKeypad.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/examples/HelloKeypad/HelloKeypad.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/examples/HelloKeypad3/HelloKeypad3.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/examples/MultiKey/MultiKey.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/examples/loopCounter/loopCounter.ino">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/keywords.txt">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
 		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/utility/Key.cpp">
 			<Option target="arduino-camper-controller"/>
 		</Unit>
 		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/utility/Key.h">
 			<Option target="arduino-camper-controller"/>
 		</Unit>
-		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/LCD/LiquidCrystal_I2C.cpp">
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/OneWire/OneWire.cpp">
 			<Option target="arduino-camper-controller"/>
 		</Unit>
-		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/LCD/LiquidCrystal_I2C.h">
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/OneWire/OneWire.h">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/OneWire/docs/issue_template.md">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/OneWire/examples/DS18x20_Temperature/DS18x20_Temperature.pde">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/OneWire/examples/DS2408_Switch/DS2408_Switch.pde">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/OneWire/examples/DS250x_PROM/DS250x_PROM.pde">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/OneWire/keywords.txt">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/OneWire/library.json">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/OneWire/library.properties">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/OneWire/util/OneWire_direct_gpio.h">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/OneWire/util/OneWire_direct_regtype.h">
 			<Option target="arduino-camper-controller"/>
 		</Unit>
 		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/main.cpp">

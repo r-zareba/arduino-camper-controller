@@ -1,9 +1,11 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/arduino-camper-controller.dir/src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp.o"
   "CMakeFiles/arduino-camper-controller.dir/src/Button/Button.cpp.o"
+  "CMakeFiles/arduino-camper-controller.dir/src/DallasTemperature/DallasTemperature.cpp.o"
   "CMakeFiles/arduino-camper-controller.dir/src/Encoder/Encoder.cpp.o"
   "CMakeFiles/arduino-camper-controller.dir/src/Keypad/Keypad.cpp.o"
   "CMakeFiles/arduino-camper-controller.dir/src/Keypad/utility/Key.cpp.o"
-  "CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.o"
+  "CMakeFiles/arduino-camper-controller.dir/src/OneWire/OneWire.cpp.o"
   "CMakeFiles/arduino-camper-controller.dir/src/main.cpp.o"
   "arduino-camper-controller"
   "arduino-camper-controller.pdb"

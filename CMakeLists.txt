@@ -64,8 +64,23 @@ add_custom_target(
 )
 
 add_executable(${PROJECT_NAME} ${SRC_LIST}
-        src/Button/Button.cpp src/Button/Button.h
-        src/Encoder/Encoder.cpp src/Encoder/Encoder.h
-        src/Keypad/Keypad.cpp src/Keypad/Keypad.h
-        src/Keypad/utility/Key.cpp src/Keypad/utility/Key.h
-        src/LCD/LiquidCrystal_I2C.cpp src/LCD/LiquidCrystal_I2C.h)
+        src/Keypad/Keypad.cpp
+        src/Keypad/Keypad.h
+
+        src/OneWire/OneWire.cpp
+        src/OneWire/OneWire.h
+
+        src/DallasTemperature/DallasTemperature.cpp
+        src/DallasTemperature/DallasTemperature.h
+
+        src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.cpp
+        src/Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.h
+
+        src/Button/Button.cpp
+        src/Button/Button.h
+
+        src/Encoder/Encoder.cpp
+        src/Encoder/Encoder.h
+
+
+)

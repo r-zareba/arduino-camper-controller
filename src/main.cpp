@@ -1,9 +1,13 @@
 #include <Arduino.h>
 
+#include "Arduino-LiquidCrystal-I2C-library-master/LiquidCrystal_I2C.h"
+#include "Keypad/Keypad.h"
+#include "OneWire/OneWire.h"
+#include "DallasTemperature/DallasTemperature.h"
+
 #include "Button/Button.h"
 #include "Encoder/Encoder.h"
-#include "Keypad/Keypad.h"
-#include "LCD/LiquidCrystal_I2C.h"
+
 
 #define ENCODER_PIN_A 2
 #define ENCODER_PIN_B 3
