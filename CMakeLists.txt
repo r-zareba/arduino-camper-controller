@@ -67,4 +67,5 @@ add_executable(${PROJECT_NAME} ${SRC_LIST}
         src/Button/Button.cpp src/Button/Button.h
         src/Encoder/Encoder.cpp src/Encoder/Encoder.h
         src/Keypad/Keypad.cpp src/Keypad/Keypad.h
-        src/Keypad/utility/Key.cpp src/Keypad/utility/Key.h)
+        src/Keypad/utility/Key.cpp src/Keypad/utility/Key.h
+        src/LCD/LiquidCrystal_I2C.cpp src/LCD/LiquidCrystal_I2C.h)

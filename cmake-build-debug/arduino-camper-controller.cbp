@@ -234,6 +234,12 @@
 		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/utility/Key.h">
 			<Option target="arduino-camper-controller"/>
 		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/LCD/LiquidCrystal_I2C.cpp">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
+		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/LCD/LiquidCrystal_I2C.h">
+			<Option target="arduino-camper-controller"/>
+		</Unit>
 		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/main.cpp">
 			<Option target="arduino-camper-controller"/>
 		</Unit>

@@ -38,3 +38,7 @@ bool Button::beenClicked() {
     return false;
 }
 
+bool Button::isPressed() const {
+    return digitalRead(pin) != idleState;
+}
+

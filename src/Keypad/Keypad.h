@@ -2,8 +2,8 @@
 // Created by rafal on 24.06.2020.
 //
 
-#ifndef HOME_CONTROLLER_KEYPAD_H
-#define HOME_CONTROLLER_KEYPAD_H
+#ifndef ARDUINO_CAMPER_CONTROLLER_KEYPAD_H
+#define ARDUINO_CAMPER_CONTROLLER_KEYPAD_H
 
 
 #include "utility/Key.h"

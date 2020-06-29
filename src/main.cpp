@@ -1,11 +1,9 @@
 #include <Arduino.h>
-#include <Wire.h>
-
-//#include <LiquidCrystal_I2C.h>
 
 #include "Button/Button.h"
 #include "Encoder/Encoder.h"
 #include "Keypad/Keypad.h"
+#include "LCD/LiquidCrystal_I2C.h"
 
 #define ENCODER_PIN_A 2
 #define ENCODER_PIN_B 3
@@ -17,7 +15,7 @@
 #define DOOR_SENSOR_3_PIN 52
 
 #define GREEN_LED_PIN 8
-#define ALARM_BLINK_LED_PIN 9
+#define ARMED_BLINK_LED_PIN 9
 #define ALARM_RELAY_PIN 10
 
 const uint8_t sensor1pin = A0;
@@ -26,16 +24,19 @@ const uint8_t sensor3pin = A2;
 const uint8_t sensor4pin = A3;
 const uint8_t sensor5pin = A4;
 
-const int LED_BLINK_TIME = 500;
-const unsigned long ALARM_DURATION = 10000; // 10s
-const unsigned long ALARM_COUNTDOWN = 10000; // 10s
+const unsigned int ARMED_BLINK_TIME = 500;
+const unsigned int DISARMING_BLINK_TIME = 150;
+const unsigned int ALARM_DURATION = 5000;
+const unsigned int ALARM_COUNTDOWN = 5000;
+const byte ALARM_RETRIES = 3;
+
 
 // Keyboard configuration
 const byte KEYPAD_ROWS = 4;
 const byte KEYPAD_COLS = 3;
 
-const byte rowPins[KEYPAD_ROWS] = {43, 41, 39, 37};
-const byte colPins[KEYPAD_COLS] = {35, 33, 31};
+byte rowPins[KEYPAD_ROWS] = {43, 41, 39, 37};
+byte colPins[KEYPAD_COLS] = {35, 33, 31};
 
 char keys[KEYPAD_ROWS][KEYPAD_COLS] = {
         {'1','2','3'},
@@ -44,16 +45,19 @@ char keys[KEYPAD_ROWS][KEYPAD_COLS] = {
         {'*','0','#'}
 };
 
-char pin[] {'1', '2', '3', '4'};
-int pinPosition = 1;
+const char armingKey = '#';
+const char pin[] {'1', '2', '3', '4'};
+byte pinPosition;
 
-Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, KEYPAD_ROWS, KEYPAD_COLS);
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, KEYPAD_ROWS, KEYPAD_COLS);
 Button enterButton(MENU_ENTER_BUTTON_PIN, LOW);
 Button backButton(MENU_BACK_BUTTON_PIN, LOW);
 Button doorSensor1(DOOR_SENSOR_1_PIN, LOW);
 Button doorSensor2(DOOR_SENSOR_2_PIN, LOW);
 Button doorSensor3(DOOR_SENSOR_3_PIN, LOW);
-Encoder encoder(ENCODER_PIN_A, ENCODER_PIN_B);
+Encoder encoder(ENCODER_PIN_A, ENCODER_PIN_B, true);
+
+LiquidCrystal_I2C lcd(0x27, 16, 2); // Change the 0x27
 
 enum {
     NORMAL = 1,
@@ -72,15 +76,19 @@ unsigned long countTime;
 
 volatile bool rotating;
 volatile bool posChanged;
+uint8_t encoderPos;
 
-bool isCountingDown = false;
-bool countedDown = false;
+bool isCountingDown;
+bool passwordVerified;
+byte nAlarmRetries;
 
-void countDown(unsigned long time);
-void blinkLed(byte ledPin, unsigned long time);
-void stopBlinking(byte ledPin);
-void turnOnAlarm(byte relayPin, unsigned long time);
-void turnOffAlarm(byte relayPin);
+void blinkPin(byte pinNum, unsigned int time);
+void countDown();
+void stopBlinking();
+void turnOnAlarm();
+void turnOffAlarm();
+bool checkPassword(char key);
+void printParams(const String &param1, float value1, const String &param2, float value2);
 
 void encodePinA();
 void encodePinB();
@@ -90,46 +98,78 @@ void setup() {
     Serial.begin(9600);
 
     pinMode(GREEN_LED_PIN, OUTPUT);
-    pinMode(ALARM_BLINK_LED_PIN, OUTPUT);
+    pinMode(ARMED_BLINK_LED_PIN, OUTPUT);
     pinMode(ALARM_RELAY_PIN, OUTPUT);
 
     attachInterrupt(digitalPinToInterrupt(ENCODER_PIN_A), encodePinA, CHANGE);
     attachInterrupt(digitalPinToInterrupt(ENCODER_PIN_B), encodePinB, CHANGE);
 
     controllerState = NORMAL;
+    pinPosition = 1;
+    isCountingDown = false;
+    passwordVerified = false;
+
+    lcd.begin();
+    lcd.clear();
+    lcd.home();
+
+    encoder.resetPos();
 }
 
 void loop() {
 
     currentTime = millis();
     rotating = true;
+    encoderPos = encoder.getCurrentPos();
+
+    if (posChanged){
+        lcd.clear();
+        lcd.backlight();
+        posChanged = false;
+    }
+
+    switch (encoderPos) {
+        case 0:
+            printParams("Temp", 22.7, "Humidty", 67.8);
+            break;
+        case 1:
+            printParams("Voltage", 11.9, "Current", 2.67);
+            break;
+        case 2:
+            printParams("VOLT", 12.9, "Currento", 2.27);
+            break;
+        default:
+            lcd.clear();
+            break;
+    }
 
     char key;
 
     switch(controllerState) {
         case NORMAL:
+            nAlarmRetries = 0;
             key = keypad.getKey();
 
             // Stop counting down by pressing any key
             if (isCountingDown) {
-                countDown(ALARM_COUNTDOWN);
+                countDown();
                 if (key) {
                     isCountingDown = false;
                     break;
                 }
-
             }
-
-            if (key == '#') {
+            if (key == armingKey) {
                 isCountingDown = true;
                 countTime = currentTime;
             }
             break;
 
         case ARMED:
-            blinkLed(ALARM_BLINK_LED_PIN, LED_BLINK_TIME);
-            if (doorSensor2.beenClicked() || doorSensor3.beenClicked()) {
+            blinkPin(ARMED_BLINK_LED_PIN, ARMED_BLINK_TIME);
+            if (doorSensor2.beenClicked() || doorSensor2.isPressed() ||
+            doorSensor3.beenClicked() || doorSensor3.isPressed()) {
                 alarmTime = currentTime;
+                stopBlinking();
                 controllerState = ALARM;
             } else if (doorSensor1.beenClicked()) {
                 unlockTime = currentTime;
@@ -138,20 +178,13 @@ void loop() {
             break;
 
         case UNLOCKING:
-            blinkLed(ALARM_BLINK_LED_PIN, 200);
+            blinkPin(ARMED_BLINK_LED_PIN, DISARMING_BLINK_TIME);
             key = keypad.getKey();
             if (key) {
-                if (pinPosition == 1 && key == pin[0]) {
-                    pinPosition++;
-                } else if (pinPosition == 2 && key == pin[1]) {
-                    pinPosition++;
-                } else if (pinPosition == 3 && key == pin[2]) {
-                    pinPosition++;
-                } else if (pinPosition == 4 && key == pin[3]) {
-                    stopBlinking(ALARM_BLINK_LED_PIN);
+                passwordVerified = checkPassword(key);
+                if (passwordVerified) {
+                    stopBlinking();
                     controllerState = NORMAL;
-                    pinPosition = 1;
-                } else {
                     pinPosition = 1;
                 }
             }
@@ -163,62 +196,88 @@ void loop() {
             break;
 
         case ALARM:
-            stopBlinking(ALARM_BLINK_LED_PIN);
-            turnOnAlarm(ALARM_RELAY_PIN, ALARM_DURATION);
+            if (nAlarmRetries < ALARM_RETRIES) {
+                stopBlinking();
+                turnOnAlarm();
+            } else
+                blinkPin(ARMED_BLINK_LED_PIN, DISARMING_BLINK_TIME);
+
+            key = keypad.getKey();
+            if (key) {
+                passwordVerified = checkPassword(key);
+                if (passwordVerified) {
+                    turnOffAlarm();
+                    stopBlinking();
+                    controllerState = NORMAL;
+                    pinPosition = 1;
+                }
+            }
             break;
     }
 
 }
 
-//    if (enterButton.beenClicked()) {
-//        ledState = !ledState;
-//        digitalWrite(greenLedPin, ledState);
-//    }
-//
-////    if (currentTime - printTime >= 100) {
-////        Serial.println(encoder.getCurrentPos());
-////        printTime = currentTime;
-////    }
-//
-//    char key = keypad.getKey();
-//    if (key)
-//        Serial.println(key);
 
-void countDown(unsigned long time) {
-    if (currentTime - countTime >= time) {
+void countDown() {
+    if (currentTime - countTime >= ALARM_COUNTDOWN) {
         controllerState = ARMED;
         isCountingDown = false;
     }
 }
 
-void blinkLed(byte ledPin, unsigned long time) {
-    bool ledState = digitalRead(ledPin);
-
+void blinkPin(byte pinNum, unsigned int time) {
+    bool ledState = digitalRead(pinNum);
     if (currentTime - blinkTime >= time) {
         ledState = !ledState;
-        digitalWrite(ledPin, ledState);
+        digitalWrite(pinNum, ledState);
         blinkTime = currentTime;
     }
 }
 
-void stopBlinking(byte ledPin) {
-    digitalWrite(ledPin, LOW);
+void stopBlinking() {
+    digitalWrite(ARMED_BLINK_LED_PIN, LOW);
 }
 
-void turnOnAlarm(byte relayPin, unsigned long time) {
-    digitalWrite(relayPin, HIGH);
-    if (currentTime - alarmTime >= time) {
-        turnOffAlarm(relayPin);
+void turnOnAlarm() {
+    digitalWrite(ALARM_RELAY_PIN, HIGH);
+    if (currentTime - alarmTime >= ALARM_DURATION) {
+        turnOffAlarm();
+        nAlarmRetries++;
         controllerState = ARMED;
     }
 }
 
-void turnOffAlarm(byte relayPin) {
-    digitalWrite(relayPin, LOW);
+void turnOffAlarm() {
+    digitalWrite(ALARM_RELAY_PIN, LOW);
+}
+
+bool checkPassword(char key) {
+    if (pinPosition == 1 && key == pin[0]) {
+        pinPosition++;
+    } else if (pinPosition == 2 && key == pin[1]) {
+        pinPosition++;
+    } else if (pinPosition == 3 && key == pin[2]) {
+        pinPosition++;
+    } else if (pinPosition == 4 && key == pin[3]) {
+        return true;
+    }
+    return false;
+}
+
+void printParams(const String &param1, float value1, const String &param2, float value2) {
+    lcd.setCursor(0, 0);
+    lcd.print(param1);
+    lcd.setCursor(12, 0);
+    lcd.print(value1);
+
+    lcd.setCursor(0, 1);
+    lcd.print(param2);
+    lcd.setCursor(12, 1);
+    lcd.print(value2);
 }
 
 
-/* Interrupts functions */
+/* Interrupts encoder functions */
 void encodePinA() {
     if (rotating)
         delay(Encoder::encoderDelay);

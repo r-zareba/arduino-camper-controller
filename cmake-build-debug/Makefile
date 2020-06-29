@@ -361,6 +361,33 @@ src/Keypad/utility/Key.cpp.s:
 	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Keypad/utility/Key.cpp.s
 .PHONY : src/Keypad/utility/Key.cpp.s
 
+src/LCD/LiquidCrystal_I2C.o: src/LCD/LiquidCrystal_I2C.cpp.o
+
+.PHONY : src/LCD/LiquidCrystal_I2C.o
+
+# target to build an object file
+src/LCD/LiquidCrystal_I2C.cpp.o:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.o
+.PHONY : src/LCD/LiquidCrystal_I2C.cpp.o
+
+src/LCD/LiquidCrystal_I2C.i: src/LCD/LiquidCrystal_I2C.cpp.i
+
+.PHONY : src/LCD/LiquidCrystal_I2C.i
+
+# target to preprocess a source file
+src/LCD/LiquidCrystal_I2C.cpp.i:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.i
+.PHONY : src/LCD/LiquidCrystal_I2C.cpp.i
+
+src/LCD/LiquidCrystal_I2C.s: src/LCD/LiquidCrystal_I2C.cpp.s
+
+.PHONY : src/LCD/LiquidCrystal_I2C.s
+
+# target to generate assembly for a file
+src/LCD/LiquidCrystal_I2C.cpp.s:
+	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.s
+.PHONY : src/LCD/LiquidCrystal_I2C.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -419,6 +446,9 @@ help:
 	@echo "... src/Keypad/utility/Key.o"
 	@echo "... src/Keypad/utility/Key.i"
 	@echo "... src/Keypad/utility/Key.s"
+	@echo "... src/LCD/LiquidCrystal_I2C.o"
+	@echo "... src/LCD/LiquidCrystal_I2C.i"
+	@echo "... src/LCD/LiquidCrystal_I2C.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

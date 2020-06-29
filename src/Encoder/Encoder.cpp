@@ -4,27 +4,33 @@
 
 #include "Encoder.h"
 
-const uint8_t Encoder::encoderDelay = 6;
+const uint8_t Encoder::encoderDelay = 10;
 
 
-Encoder::Encoder(uint8_t pinA, uint8_t pinB)
-        : pinA(pinA), pinB(pinB), minRange(0), maxRange(2) {
+Encoder::Encoder(uint8_t pinA, uint8_t pinB, bool overflow)
+        : pinA(pinA), pinB(pinB), minRange(0), maxRange(2), overflow(overflow) {
     pinMode(pinA, INPUT);
     pinMode(pinB, INPUT);
 }
 
-Encoder::Encoder(uint8_t pinA, uint8_t pinB, int min, int max)
-        : pinA(pinA), pinB(pinB), minRange(min), maxRange(max) {
+Encoder::Encoder(uint8_t pinA, uint8_t pinB, bool overflow, int min, int max)
+        : pinA(pinA), pinB(pinB), minRange(min), maxRange(max), overflow(overflow) {
     pinMode(pinA, INPUT);
     pinMode(pinB, INPUT);
 }
 
 void Encoder::keepInRange() {
-    if (currentPos >= maxRange)
-        currentPos = maxRange;
-
-    if (currentPos <= minRange)
-        currentPos = minRange;
+    if (overflow) {
+        if (currentPos > maxRange)
+            currentPos = minRange;
+        if (currentPos < minRange)
+            currentPos = maxRange;
+    } else {
+        if (currentPos >= maxRange)
+            currentPos = maxRange;
+        if (currentPos <= minRange)
+            currentPos = minRange;
+    }
 }
 
 void Encoder::encodeA() {

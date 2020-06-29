@@ -109,9 +109,22 @@ CMakeFiles/arduino-camper-controller.dir/src/Keypad/utility/Key.cpp.s: cmake_for
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/arduino-camper-controller.dir/src/Keypad/utility/Key.cpp.s"
 	/home/rafal/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/utility/Key.cpp -o CMakeFiles/arduino-camper-controller.dir/src/Keypad/utility/Key.cpp.s
 
+CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.o: CMakeFiles/arduino-camper-controller.dir/flags.make
+CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.o: ../src/LCD/LiquidCrystal_I2C.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.o"
+	/home/rafal/.platformio/packages/toolchain-atmelavr/bin/avr-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.o -c /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/LCD/LiquidCrystal_I2C.cpp
+
+CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.i"
+	/home/rafal/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/LCD/LiquidCrystal_I2C.cpp > CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.i
+
+CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.s"
+	/home/rafal/.platformio/packages/toolchain-atmelavr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/LCD/LiquidCrystal_I2C.cpp -o CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.s
+
 CMakeFiles/arduino-camper-controller.dir/src/main.cpp.o: CMakeFiles/arduino-camper-controller.dir/flags.make
 CMakeFiles/arduino-camper-controller.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/arduino-camper-controller.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/arduino-camper-controller.dir/src/main.cpp.o"
 	/home/rafal/.platformio/packages/toolchain-atmelavr/bin/avr-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/arduino-camper-controller.dir/src/main.cpp.o -c /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/main.cpp
 
 CMakeFiles/arduino-camper-controller.dir/src/main.cpp.i: cmake_force
@@ -128,6 +141,7 @@ arduino__camper__controller_OBJECTS = \
 "CMakeFiles/arduino-camper-controller.dir/src/Encoder/Encoder.cpp.o" \
 "CMakeFiles/arduino-camper-controller.dir/src/Keypad/Keypad.cpp.o" \
 "CMakeFiles/arduino-camper-controller.dir/src/Keypad/utility/Key.cpp.o" \
+"CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.o" \
 "CMakeFiles/arduino-camper-controller.dir/src/main.cpp.o"
 
 # External object files for target arduino-camper-controller
@@ -137,10 +151,11 @@ arduino-camper-controller: CMakeFiles/arduino-camper-controller.dir/src/Button/B
 arduino-camper-controller: CMakeFiles/arduino-camper-controller.dir/src/Encoder/Encoder.cpp.o
 arduino-camper-controller: CMakeFiles/arduino-camper-controller.dir/src/Keypad/Keypad.cpp.o
 arduino-camper-controller: CMakeFiles/arduino-camper-controller.dir/src/Keypad/utility/Key.cpp.o
+arduino-camper-controller: CMakeFiles/arduino-camper-controller.dir/src/LCD/LiquidCrystal_I2C.cpp.o
 arduino-camper-controller: CMakeFiles/arduino-camper-controller.dir/src/main.cpp.o
 arduino-camper-controller: CMakeFiles/arduino-camper-controller.dir/build.make
 arduino-camper-controller: CMakeFiles/arduino-camper-controller.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable arduino-camper-controller"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable arduino-camper-controller"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/arduino-camper-controller.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -94,12 +94,12 @@ clean: CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/clean
 CMakeFiles/arduino-camper-controller.dir/all:
 	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/depend
 	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target arduino-camper-controller"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target arduino-camper-controller"
 .PHONY : CMakeFiles/arduino-camper-controller.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/arduino-camper-controller.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/arduino-camper-controller.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafal/Desktop/Arduino_projects/arduino-camper-controller/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/arduino-camper-controller.dir/rule
