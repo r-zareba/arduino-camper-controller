@@ -12,15 +12,12 @@
 #define ENCODER_PIN_A 2
 #define ENCODER_PIN_B 3
 
-#define MENU_ENTER_BUTTON_PIN 46
-#define MENU_BACK_BUTTON_PIN 44
-#define DOOR_SENSOR_1_PIN 48
-#define DOOR_SENSOR_2_PIN 50
-#define DOOR_SENSOR_3_PIN 52
+#define DOOR_SENSOR_1_PIN 6
+#define DOOR_SENSOR_2_PIN 5
+#define DOOR_SENSOR_3_PIN 4
 
-#define GREEN_LED_PIN 8
-#define ARMED_BLINK_LED_PIN 9
-#define ALARM_RELAY_PIN 10
+#define ARMED_BLINK_LED_PIN 1
+#define ALARM_RELAY_PIN 0
 
 const uint8_t sensor1pin = A0;
 const uint8_t sensor2pin = A1;
@@ -39,8 +36,8 @@ const byte ALARM_RETRIES = 3;
 const byte KEYPAD_ROWS = 4;
 const byte KEYPAD_COLS = 3;
 
-byte rowPins[KEYPAD_ROWS] = {43, 41, 39, 37};
-byte colPins[KEYPAD_COLS] = {35, 33, 31};
+byte rowPins[KEYPAD_ROWS] = {7, 8, 9, 10};
+byte colPins[KEYPAD_COLS] = {11, 12, 13};
 
 char keys[KEYPAD_ROWS][KEYPAD_COLS] = {
         {'1','2','3'},
@@ -54,8 +51,8 @@ const char pin[] {'1', '2', '3', '4'};
 byte pinPosition;
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, KEYPAD_ROWS, KEYPAD_COLS);
-Button enterButton(MENU_ENTER_BUTTON_PIN, LOW);
-Button backButton(MENU_BACK_BUTTON_PIN, LOW);
+//Button enterButton(MENU_ENTER_BUTTON_PIN, LOW);
+//Button backButton(MENU_BACK_BUTTON_PIN, LOW);
 Button doorSensor1(DOOR_SENSOR_1_PIN, LOW);
 Button doorSensor2(DOOR_SENSOR_2_PIN, LOW);
 Button doorSensor3(DOOR_SENSOR_3_PIN, LOW);
@@ -63,7 +60,7 @@ Encoder encoder(ENCODER_PIN_A, ENCODER_PIN_B, true);
 
 LiquidCrystal_I2C lcd(0x27, 16, 2); // Change the 0x27
 
-OneWire oneWire(22);
+OneWire oneWire(A3);
 DallasTemperature sensors(&oneWire);
 
 enum {
@@ -76,7 +73,7 @@ enum {
 unsigned long currentTime;
 unsigned long unlockTime;
 const unsigned long TIME_TO_UNLOCK = 5000; // 5s
-const unsigned long TEMP_UPDATE_TIME = 1000;
+const unsigned long TEMP_UPDATE_TIME = 15000; // 15s since its costly operation
 
 unsigned long blinkTime;
 unsigned long alarmTime;
@@ -108,7 +105,7 @@ void encodePinB();
 void setup() {
     Serial.begin(9600);
 
-    pinMode(GREEN_LED_PIN, OUTPUT);
+//    pinMode(GREEN_LED_PIN, OUTPUT);
     pinMode(ARMED_BLINK_LED_PIN, OUTPUT);
     pinMode(ALARM_RELAY_PIN, OUTPUT);
 
@@ -167,6 +164,8 @@ void loop() {
         case NORMAL:
             nAlarmRetries = 0;
             key = keypad.getKey();
+            if (key)
+                Serial.println(key);
 
             // Stop counting down by pressing any key
             if (isCountingDown) {
