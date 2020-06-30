@@ -63,6 +63,9 @@ Encoder encoder(ENCODER_PIN_A, ENCODER_PIN_B, true);
 
 LiquidCrystal_I2C lcd(0x27, 16, 2); // Change the 0x27
 
+OneWire oneWire(22);
+DallasTemperature sensors(&oneWire);
+
 enum {
     NORMAL = 1,
     ARMED,
@@ -73,10 +76,12 @@ enum {
 unsigned long currentTime;
 unsigned long unlockTime;
 const unsigned long TIME_TO_UNLOCK = 5000; // 5s
+const unsigned long TEMP_UPDATE_TIME = 1000;
 
 unsigned long blinkTime;
 unsigned long alarmTime;
 unsigned long countTime;
+unsigned long temperatureReadTime;
 
 volatile bool rotating;
 volatile bool posChanged;
@@ -85,6 +90,8 @@ uint8_t encoderPos;
 bool isCountingDown;
 bool passwordVerified;
 byte nAlarmRetries;
+
+float temperature;
 
 void blinkPin(byte pinNum, unsigned int time);
 void countDown();
@@ -118,6 +125,7 @@ void setup() {
     lcd.home();
 
     encoder.resetPos();
+    sensors.begin();
 }
 
 void loop() {
@@ -125,6 +133,12 @@ void loop() {
     currentTime = millis();
     rotating = true;
     encoderPos = encoder.getCurrentPos();
+
+    if (currentTime - temperatureReadTime >= TEMP_UPDATE_TIME) {
+        sensors.requestTemperatures();
+        temperature = sensors.getTempCByIndex(0);
+        temperatureReadTime = currentTime;
+    }
 
     if (posChanged){
         lcd.clear();
@@ -134,7 +148,7 @@ void loop() {
 
     switch (encoderPos) {
         case 0:
-            printParams("Temp", 22.7, "Humidty", 67.8);
+            printParams("Temp", temperature, "Humidty", 67.8);
             break;
         case 1:
             printParams("Voltage", 11.9, "Current", 2.67);
