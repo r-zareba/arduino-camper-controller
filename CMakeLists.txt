@@ -79,8 +79,4 @@ add_executable(${PROJECT_NAME} ${SRC_LIST}
         src/Button/Button.cpp
         src/Button/Button.h
 
-        src/Encoder/Encoder.cpp
-        src/Encoder/Encoder.h
-
-
 )

@@ -334,33 +334,6 @@ src/DallasTemperature/DallasTemperature.cpp.s:
 	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/DallasTemperature/DallasTemperature.cpp.s
 .PHONY : src/DallasTemperature/DallasTemperature.cpp.s
 
-src/Encoder/Encoder.o: src/Encoder/Encoder.cpp.o
-
-.PHONY : src/Encoder/Encoder.o
-
-# target to build an object file
-src/Encoder/Encoder.cpp.o:
-	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Encoder/Encoder.cpp.o
-.PHONY : src/Encoder/Encoder.cpp.o
-
-src/Encoder/Encoder.i: src/Encoder/Encoder.cpp.i
-
-.PHONY : src/Encoder/Encoder.i
-
-# target to preprocess a source file
-src/Encoder/Encoder.cpp.i:
-	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Encoder/Encoder.cpp.i
-.PHONY : src/Encoder/Encoder.cpp.i
-
-src/Encoder/Encoder.s: src/Encoder/Encoder.cpp.s
-
-.PHONY : src/Encoder/Encoder.s
-
-# target to generate assembly for a file
-src/Encoder/Encoder.cpp.s:
-	$(MAKE) -f CMakeFiles/arduino-camper-controller.dir/build.make CMakeFiles/arduino-camper-controller.dir/src/Encoder/Encoder.cpp.s
-.PHONY : src/Encoder/Encoder.cpp.s
-
 src/Keypad/Keypad.o: src/Keypad/Keypad.cpp.o
 
 .PHONY : src/Keypad/Keypad.o
@@ -497,9 +470,6 @@ help:
 	@echo "... src/DallasTemperature/DallasTemperature.o"
 	@echo "... src/DallasTemperature/DallasTemperature.i"
 	@echo "... src/DallasTemperature/DallasTemperature.s"
-	@echo "... src/Encoder/Encoder.o"
-	@echo "... src/Encoder/Encoder.i"
-	@echo "... src/Encoder/Encoder.s"
 	@echo "... src/Keypad/Keypad.o"
 	@echo "... src/Keypad/Keypad.i"
 	@echo "... src/Keypad/Keypad.s"

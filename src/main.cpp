@@ -6,24 +6,19 @@
 #include "DallasTemperature/DallasTemperature.h"
 
 #include "Button/Button.h"
-#include "Encoder/Encoder.h"
 
 
-#define ENCODER_PIN_A 2
-#define ENCODER_PIN_B 3
+#define DOOR_SENSOR_1_PIN 5
+#define DOOR_SENSOR_2_PIN 4
+#define DOOR_SENSOR_3_PIN 3
+#define MENU_BUTTON_PIN 6
 
-#define DOOR_SENSOR_1_PIN 6
-#define DOOR_SENSOR_2_PIN 5
-#define DOOR_SENSOR_3_PIN 4
+#define ARMED_BLINK_LED_PIN 2
+#define ALARM_RELAY_PIN 1
 
-#define ARMED_BLINK_LED_PIN 1
-#define ALARM_RELAY_PIN 0
-
-const uint8_t sensor1pin = A0;
-const uint8_t sensor2pin = A1;
-const uint8_t sensor3pin = A2;
-const uint8_t sensor4pin = A3;
-const uint8_t sensor5pin = A4;
+#define BATTERY_1_VOLTMETER_ANALOG_PIN A0
+#define BATTERY_2_VOLTMETER_ANALOG_PIN A1
+#define BATTERY_2_AMMETER_ANALOG_PIN A2
 
 const unsigned int ARMED_BLINK_TIME = 500;
 const unsigned int DISARMING_BLINK_TIME = 150;
@@ -51,12 +46,10 @@ const char pin[] {'1', '2', '3', '4'};
 byte pinPosition;
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, KEYPAD_ROWS, KEYPAD_COLS);
-//Button enterButton(MENU_ENTER_BUTTON_PIN, LOW);
-//Button backButton(MENU_BACK_BUTTON_PIN, LOW);
+Button menuButton(MENU_BUTTON_PIN, LOW);
 Button doorSensor1(DOOR_SENSOR_1_PIN, LOW);
 Button doorSensor2(DOOR_SENSOR_2_PIN, LOW);
 Button doorSensor3(DOOR_SENSOR_3_PIN, LOW);
-Encoder encoder(ENCODER_PIN_A, ENCODER_PIN_B, true);
 
 LiquidCrystal_I2C lcd(0x27, 16, 2); // Change the 0x27
 
@@ -74,43 +67,45 @@ unsigned long currentTime;
 unsigned long unlockTime;
 const unsigned long TIME_TO_UNLOCK = 5000; // 5s
 const unsigned long TEMP_UPDATE_TIME = 15000; // 15s since its costly operation
+const unsigned long LCD_BACKLIGHT_TIME = 10000;
+const unsigned long ANALOG_READ_TIME = 100;
 
 unsigned long blinkTime;
 unsigned long alarmTime;
 unsigned long countTime;
 unsigned long temperatureReadTime;
+unsigned long lcdBacklightTime;
+unsigned long analogReadTime;
 
-volatile bool rotating;
-volatile bool posChanged;
-uint8_t encoderPos;
+byte menuPosition;
+char key;
 
 bool isCountingDown;
 bool passwordVerified;
 byte nAlarmRetries;
 
-float temperature;
+bool screenTurnedOff;
+
+double temperature;
+double batteryVoltage1;
+double batteryVoltage2;
+double batteryCurrent2;
+
 
 void blinkPin(byte pinNum, unsigned int time);
 void countDown();
 void stopBlinking();
 void turnOnAlarm();
 void turnOffAlarm();
-bool checkPassword(char key);
-void printParams(const String &param1, float value1, const String &param2, float value2);
-
-void encodePinA();
-void encodePinB();
+bool checkPassword(char insertedChar);
+void printParams(const String &param1, double value1, const String &param2, double value2);
+void keepInRange(byte &value, int min, int max);
 
 
 void setup() {
-    Serial.begin(9600);
 
-//    pinMode(GREEN_LED_PIN, OUTPUT);
     pinMode(ARMED_BLINK_LED_PIN, OUTPUT);
     pinMode(ALARM_RELAY_PIN, OUTPUT);
-
-    attachInterrupt(digitalPinToInterrupt(ENCODER_PIN_A), encodePinA, CHANGE);
-    attachInterrupt(digitalPinToInterrupt(ENCODER_PIN_B), encodePinB, CHANGE);
 
     controllerState = NORMAL;
     pinPosition = 1;
@@ -120,16 +115,26 @@ void setup() {
     lcd.begin();
     lcd.clear();
     lcd.home();
+    screenTurnedOff = false;
 
-    encoder.resetPos();
     sensors.begin();
 }
 
 void loop() {
 
     currentTime = millis();
-    rotating = true;
-    encoderPos = encoder.getCurrentPos();
+
+    if (menuButton.beenClicked()) {
+        lcd.clear();
+        lcd.backlight();
+        lcdBacklightTime = currentTime;
+        if (screenTurnedOff) {
+            screenTurnedOff = false;
+        } else {
+            menuPosition++;
+            keepInRange(menuPosition, 0, 2);
+        }
+    }
 
     if (currentTime - temperatureReadTime >= TEMP_UPDATE_TIME) {
         sensors.requestTemperatures();
@@ -137,28 +142,32 @@ void loop() {
         temperatureReadTime = currentTime;
     }
 
-    if (posChanged){
-        lcd.clear();
-        lcd.backlight();
-        posChanged = false;
+    if (currentTime - lcdBacklightTime >= LCD_BACKLIGHT_TIME) {
+        lcd.noBacklight();
+        screenTurnedOff = true;
     }
 
-    switch (encoderPos) {
+    if (currentTime - analogReadTime >= ANALOG_READ_TIME) {
+        batteryVoltage1 =  analogRead(BATTERY_1_VOLTMETER_ANALOG_PIN) * (5.0/1024.0);
+        batteryVoltage2 =  analogRead(BATTERY_2_VOLTMETER_ANALOG_PIN) * (5.0/1024.0);
+        batteryCurrent2 =  analogRead(BATTERY_2_AMMETER_ANALOG_PIN) * (5.0/1024.0);
+        analogReadTime = currentTime;
+    }
+
+    switch (menuPosition) {
         case 0:
             printParams("Temp", temperature, "Humidty", 67.8);
             break;
         case 1:
-            printParams("Voltage", 11.9, "Current", 2.67);
+            printParams("BAT 1 [U]", batteryVoltage1, "-", 0);
             break;
         case 2:
-            printParams("VOLT", 12.9, "Currento", 2.27);
+            printParams("BAT 2 [U]", batteryVoltage2, "BAT 2 [I]", batteryCurrent2);
             break;
         default:
             lcd.clear();
             break;
     }
-
-    char key;
 
     switch(controllerState) {
         case NORMAL:
@@ -268,20 +277,20 @@ void turnOffAlarm() {
     digitalWrite(ALARM_RELAY_PIN, LOW);
 }
 
-bool checkPassword(char key) {
-    if (pinPosition == 1 && key == pin[0]) {
+bool checkPassword(char insertedChar) {
+    if (pinPosition == 1 && insertedChar == pin[0]) {
         pinPosition++;
-    } else if (pinPosition == 2 && key == pin[1]) {
+    } else if (pinPosition == 2 && insertedChar == pin[1]) {
         pinPosition++;
-    } else if (pinPosition == 3 && key == pin[2]) {
+    } else if (pinPosition == 3 && insertedChar == pin[2]) {
         pinPosition++;
-    } else if (pinPosition == 4 && key == pin[3]) {
+    } else if (pinPosition == 4 && insertedChar == pin[3]) {
         return true;
     }
     return false;
 }
 
-void printParams(const String &param1, float value1, const String &param2, float value2) {
+void printParams(const String &param1, double value1, const String &param2, double value2) {
     lcd.setCursor(0, 0);
     lcd.print(param1);
     lcd.setCursor(12, 0);
@@ -293,20 +302,9 @@ void printParams(const String &param1, float value1, const String &param2, float
     lcd.print(value2);
 }
 
-
-/* Interrupts encoder functions */
-void encodePinA() {
-    if (rotating)
-        delay(Encoder::encoderDelay);
-    encoder.encodeA();
-    rotating = false;
-    posChanged = true;
-}
-
-void encodePinB() {
-    if (rotating)
-        delay(Encoder::encoderDelay);
-    encoder.encodeB();
-    rotating = false;
-    posChanged = true;
+void keepInRange(byte &value, int min, int max) {
+    if (value > max)
+        value = min;
+    if (value < min)
+        value = max;
 }

@@ -300,12 +300,6 @@
 		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/DallasTemperature/library.properties">
 			<Option target="arduino-camper-controller"/>
 		</Unit>
-		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Encoder/Encoder.cpp">
-			<Option target="arduino-camper-controller"/>
-		</Unit>
-		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Encoder/Encoder.h">
-			<Option target="arduino-camper-controller"/>
-		</Unit>
 		<Unit filename="/home/rafal/Desktop/Arduino_projects/arduino-camper-controller/src/Keypad/Keypad.cpp">
 			<Option target="arduino-camper-controller"/>
 		</Unit>
