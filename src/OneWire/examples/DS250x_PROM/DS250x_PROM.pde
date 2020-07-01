@@ -4,12 +4,12 @@ DS250x add-only programmable memory reader w/SKIP ROM.
  The DS250x is a 512/1024bit add-only PROM(you can add data but cannot change the old one) that's used mainly for device identification purposes
  like serial number, mfgr data, unique identifiers, etc. It uses the Maxim 1-wire bus.
 
- This sketch will use the SKIP ROM function that skips the 1-Wire search phase since we only have one device connected in the bus on digital pin 6.
+ This sketch will use the SKIP ROM function that skips the 1-Wire search phase since we only have one device connected in the bus on digital PIN 6.
  If more than one device is connected to the bus, it will fail.
  Sketch will not verify if device connected is from the DS250x family since the skip rom function effectively skips the family-id byte readout.
  thus it is possible to run this sketch with any Maxim OneWire device in which case the command CRC will most likely fail.
  Sketch will only read the first page of memory(32bits) starting from the lower address(0000h), if more than 1 device is present, then use the sketch with search functions.
- Remember to put a 4.7K pullup resistor between pin 6 and +Vcc
+ Remember to put a 4.7K pullup resistor between PIN 6 and +Vcc
 
  To change the range or ammount of data to read, simply change the data array size, LSB/MSB addresses and for loop iterations
 
@@ -23,7 +23,7 @@ DS250x add-only programmable memory reader w/SKIP ROM.
  */
 
 #include <OneWire.h>
-OneWire ds(6);                    // OneWire bus on digital pin 6
+OneWire ds(6);                    // OneWire bus on digital PIN 6
 void setup() {
   Serial.begin (9600);
 }

@@ -14,7 +14,7 @@ This library supports the following devices :
 
 You will need a pull-up resistor of about 5 KOhm between the 1-Wire data line
 and your 5V power. If you are using the DS18B20, ground pins 1 and 3. The
-centre pin is the data line '1-wire'.
+centre PIN is the data line '1-wire'.
 
 We have included a "REQUIRESNEW" and "REQUIRESALARMS" definition. If you 
 want to slim down the code feel free to use either of these by including

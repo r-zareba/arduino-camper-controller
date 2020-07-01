@@ -42,7 +42,7 @@ uint8_t findDevices(int pin)
 
   if (ow.search(address))
   {
-    Serial.print("\nuint8_t pin");
+    Serial.print("\nuint8_t PIN");
     Serial.print(pin, DEC);
     Serial.println("[][8] = {");
     do {

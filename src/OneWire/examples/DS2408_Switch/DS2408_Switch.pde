@@ -12,7 +12,7 @@
  *   - For reading from a switch, you should use 10K pull-up resisters.
  */
 
-OneWire net(10);  // on pin 10
+OneWire net(10);  // on PIN 10
 
 
 void PrintBytes(const uint8_t* addr, uint8_t count, bool newline=false) {

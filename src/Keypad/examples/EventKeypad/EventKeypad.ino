@@ -29,7 +29,7 @@ boolean ledPin_state;
 
 void setup(){
     Serial.begin(9600);
-    pinMode(ledPin, OUTPUT);              // Sets the digital pin as output.
+    pinMode(ledPin, OUTPUT);              // Sets the digital PIN as output.
     digitalWrite(ledPin, HIGH);           // Turn the LED on.
     ledPin_state = digitalRead(ledPin);   // Store initial LED state. HIGH when LED is on.
     keypad.addEventListener(keypadEvent); // Add an event listener for this keypad
