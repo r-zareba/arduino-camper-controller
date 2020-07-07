@@ -22,14 +22,21 @@
 
 #define SECOND_BATTERY_RELAY_PIN 0
 
-const float SECOND_BATTERY_CHARGE_THRESHOLD = 4.51;
-const unsigned int SECOND_BATTERY_CHARGE_AFTER = 5000;
+const float SECOND_BATTERY_CHARGE_THRESHOLD = 14.00;
+const float VOLTAGE_CONVERTER_VALUE = 25.0; // Converter 0-25V --> 0-5V
+const float CONVERTER_SCALE_FACTOR = VOLTAGE_CONVERTER_VALUE / 5;
+const unsigned int SECOND_BATTERY_CHARGE_AFTER = 5000; // 60 seconds final !
 
 const unsigned int ARMED_BLINK_TIME = 500;
 const unsigned int DISARMING_BLINK_TIME = 150;
 const unsigned int ALARM_DURATION = 5000;
 const unsigned int ALARM_COUNTDOWN = 5000;
 const byte ALARM_RETRIES = 3;
+
+const unsigned long TIME_TO_UNLOCK = 5000; // How much time to unlock when front doors were opened
+const unsigned long TEMP_UPDATE_TIME = 15000; // 15s since its costly operation
+const unsigned long LCD_BACKLIGHT_TIME = 15000;
+const unsigned long ANALOG_READ_TIME = 200;
 
 // Keyboard configuration
 const byte KEYPAD_ROWS = 4;
@@ -55,9 +62,7 @@ Button menuButton(MENU_BUTTON_PIN, LOW);
 Button doorSensor1(DOOR_SENSOR_1_PIN, LOW);
 Button doorSensor2(DOOR_SENSOR_2_PIN, LOW);
 Button doorSensor3(DOOR_SENSOR_3_PIN, LOW);
-
-LiquidCrystal_I2C lcd(0x27, 16, 2); // Change the 0x27
-
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 OneWire oneWire(A3);
 DallasTemperature sensors(&oneWire);
 
@@ -68,13 +73,9 @@ enum {
     ALARM
 } controllerState;
 
+
 unsigned long currentTime;
 unsigned long unlockTime;
-const unsigned long TIME_TO_UNLOCK = 5000;
-const unsigned long TEMP_UPDATE_TIME = 15000; // 15s since its costly operation
-const unsigned long LCD_BACKLIGHT_TIME = 15000;
-const unsigned long ANALOG_READ_TIME = 100;
-
 unsigned long blinkTime;
 unsigned long alarmTime;
 unsigned long countTime;
@@ -85,21 +86,17 @@ unsigned long secondBatteryChargeTime;
 
 byte menuPosition;
 char insertedKey;
-
-bool isCountingDown;
-bool passwordVerified;
 byte nAlarmRetries;
 
+bool isArming;
+bool passwordVerified;
+bool isCharging;
 bool screenTurnedOff;
 
 double temperature;
 double batteryVoltage1;
 double batteryVoltage2;
 double batteryCurrent2;
-
-bool isCharging;
-bool chargeCountdown;
-
 
 void blinkPin(byte pinNum, unsigned int time);
 void countDown();
@@ -120,7 +117,7 @@ void setup() {
 
     controllerState = NORMAL;
     pinPosition = 1;
-    isCountingDown = false;
+    isArming = false;
     passwordVerified = false;
 
     lcd.begin();
@@ -129,7 +126,6 @@ void setup() {
     screenTurnedOff = false;
 
     isCharging = false;
-    chargeCountdown = false;
     sensors.begin();
 
 }
@@ -166,9 +162,9 @@ void loop() {
     }
 
     if (currentTime - analogReadTime >= ANALOG_READ_TIME) {
-        batteryVoltage1 = analogRead(BATTERY_1_VOLTMETER_ANALOG_PIN) * (5.0 / 1024.0);
-        batteryVoltage2 = analogRead(BATTERY_2_VOLTMETER_ANALOG_PIN) * (5.0 / 1024.0);
-        batteryCurrent2 = analogRead(BATTERY_2_AMMETER_ANALOG_PIN) * (5.0 / 1024.0);
+        batteryVoltage1 = analogRead(BATTERY_1_VOLTMETER_ANALOG_PIN) * (5.0 / 1024.0) * CONVERTER_SCALE_FACTOR;
+        batteryVoltage2 = analogRead(BATTERY_2_VOLTMETER_ANALOG_PIN) * (5.0 / 1024.0) * CONVERTER_SCALE_FACTOR;
+        batteryCurrent2 = analogRead(BATTERY_2_AMMETER_ANALOG_PIN) * (5.0 / 1024.0) * CONVERTER_SCALE_FACTOR;
         analogReadTime = currentTime;
     }
 
@@ -191,10 +187,10 @@ void loop() {
             printParams("Temp [C]", temperature, "Humidity", 62.7);
             break;
         case 1:
-            printParam("BAT 1 [U]", batteryVoltage1, 0);
+            printParam("BAT 1 [V]", batteryVoltage1, 0);
             break;
         case 2:
-            printParams("BAT 2 [U]", batteryVoltage2, "BAT 2 [I]", batteryCurrent2);
+            printParams("BAT 2 [V]", batteryVoltage2, "BAT 2 [A]", batteryCurrent2);
             break;
         default:
             lcd.clear();
@@ -206,15 +202,15 @@ void loop() {
             nAlarmRetries = 0;
 
             // Stop counting down by pressing any key
-            if (isCountingDown) {
+            if (isArming) {
                 countDown();
                 if (insertedKey) {
-                    isCountingDown = false;
+                    isArming = false;
                     break;
                 }
             }
             if (insertedKey == ARMING_KEY) {
-                isCountingDown = true;
+                isArming = true;
                 countTime = currentTime;
             }
             break;
@@ -275,7 +271,7 @@ void loop() {
 void countDown() {
     if (currentTime - countTime >= ALARM_COUNTDOWN) {
         controllerState = ARMED;
-        isCountingDown = false;
+        isArming = false;
     }
 }
 

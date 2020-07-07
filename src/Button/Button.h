@@ -10,15 +10,15 @@
 
 class Button {
 public:
-    Button(uint8_t pin, bool idleState);
+    Button(byte pin, bool idleState);
     bool beenClicked();
     bool isPressed() const;
 
 private:
     static unsigned long lastTimeClicked;
-    static const uint8_t buttonDelay;
+    static const byte buttonDelay;
 
-    const uint8_t pin;
+    const byte pin;
     const bool idleState;
     bool buttonState = idleState;
     bool lastButtonState = idleState;

@@ -9,7 +9,7 @@ unsigned long Button::lastTimeClicked = 0;
 const uint8_t Button::buttonDelay = 20;
 
 
-Button::Button(uint8_t pin, bool idleState)
+Button::Button(byte pin, bool idleState)
 : pin(pin), idleState(idleState) {
     pinMode(pin, INPUT);
 }
